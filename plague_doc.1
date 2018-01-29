@@ -1,0 +1,115 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "PLAGUE_DOC" "1" "January 2018" "" "plague_doc"
+.
+.SH "NAME"
+\fBplague_doc\fR \- A filesystem organization specification
+.
+.SH "NAME"
+plague_doc is short for Plague Doctor\. plague_doc is a specification for organizing filesystems\.
+.
+.SH "DEFINITIONS"
+The \fB/\fR is considered the filesystem root\.
+.
+.P
+In certain places the notation \fB[a\-z]\fR may be used\. This is used to define a list of folders called \'a\', \'b\', \'c\' and so on\. If \fB[a\-z]\fR is used, it is automatically assumed that its alphabetical notation is for the next folder in the structure\.
+.
+.TP
+\fB/\fR
+The root directory for the filesystem\. This is not the computer root (The \fB/\fR location), but will be referred to for simplicity for this manpage\.
+.
+.SH "AUDIO"
+.
+.TP
+\fB/audio\fR
+Generic top directory for audio files\.
+.
+.TP
+\fB/audio/audiobooks\fR
+Directory for audiobooks\. Audiobooks are organized by the structure of \fB[a\-z]/<book author>/<book title>/<tracks>\fR\. Formatting of track titles is not enforced by the specification\.
+.
+.TP
+\fB/audio/music\fR
+Directory for music\. Music is organized by the structure of \fB[a\-z]/<artist>/<album>/<tracks>\fR\. Formatting of track titles is not enforced by the specification\.
+.
+.TP
+\fB/audio/podcasts\fR
+Directory for podcasts\. Podcasts are organized by the structure of \fB[a\-z]/<podcast title>/<tracks>\fR\. Formatting of track titles is not enforced by the specification\.
+.
+.TP
+\fB/audio/miscellaneous\fR
+Directory for misc\. files\. No direct structure is enforced here\. It is not recommended to store audio in this folder\.
+.
+.SH "VIDEO"
+.
+.TP
+\fB/video\fR
+Generic top directory for video files\.
+.
+.TP
+\fB/video/tv\-shows\fR
+Directory for TV Shows\. TV Shows are organized by the structure of \fB[a\-z]/<show title>/<season>/<episode files>\fR\. Reference sources such as theTVDB for season structure for extra episodes\. For single season TV Shows, the Season folder may be skipped\. File naming should be done in such a way Media managers can easily pick up on it and retrieve additional metadata as needed\.
+.
+.TP
+\fB/video/anime\fR
+Directory for anime\. Anime is organized by the structure of \fB[a\-z]/<anime title>/<season>/<episode files>\fR\. Reference sources such as theTVDB for season structure for extra episodes\. For single season Anime, the Season folder may be skipped\. File naming should be done in such a way Media managers can easily pick up on it and retrieve additional metadata as needed\.
+.
+.TP
+\fB/video/movies\fR
+Directory for movies\. Movies are organized by the structure of \fB[a\-z]/<movie title>/<movie file>\fR\. Bonus features/bloopers/etcetera may be located in subfolders\. File naming should be done in such a way Media managers can easily pick up on it and retrieve additional metadata as needed\.
+.
+.SH "DOCUMENTS"
+.
+.TP
+\fB/documents\fR
+Generic top directory for documentation\.
+.
+.TP
+\fB/documents/school\fR
+Directory for files related to school\. These files should be organized with the structure of \fB<year>/<course>/<task>/<files>\fR\. For generic course info, a folder called \fBgeneric\fR should be used in the \fBcourse\fR folder\. For generic school related information, a folder called \fBgeneric\fR should be used in the \fB<year>\fR folder\.
+.
+.TP
+\fB/documents/work\fR
+Directory for files related to work\.
+.
+.TP
+\fB/documents/private\fR
+Directory for private files\. These follow no apparent structure\.
+.
+.SH "SOFTWARE"
+.
+.TP
+\fB/software\fR
+Generic top directory for software\.
+.
+.TP
+\fB/software/tools\fR
+Directory for \'utility\' software\. This includes file converters, media editors, internet browsers, IDEs and similar utilities\. Tools are organized with the following structure: \fB<platform>/<category>/<program name>/<program\.zip>\fR\. Tools should ideally be compressed, if they consist of multiple files\. If they consist of a single file, no compression is needed\.
+.
+.TP
+\fB/software/games\fR
+Directory for video games\. Games are organized with the following structure: \fB<platform>/<game name>/<game files>\fR\. This includes games that can be used with emulation software\. Cross platform games (those with multiplatform binaries in the same game folder) should be put in a \fBcross\-platform\fR folder\. Virtual Console games for the Nintendo 3DS, Wii or Wii U should be put inside a folder called \fBVC\-<platform>\fR in the game folder for the original platform and the \fBVC\-<platform>\fR directory should be symlinked to the platform the Virtual Console is made for\.
+.
+.SH "OTHER"
+.
+.TP
+\fB/unsorted\fR
+Used as a temporary storage for files that haven\'t been sorted in the appropriate directories\. Should go mostly unused\.
+.
+.TP
+\fB/websites\fR
+Used for archiving websites\. Websites should be archived with the structure of \fB<website name\.zip>\fR\. Crawling choice is mostly free, but wget with WARC output is recommended\.
+.
+.SH "IMAGES"
+Images are not part of the plague_doc structure\. That said, it is recommended to set up a booru using a local webserver\. It is entirely possible to point the folder root of this booru to a directory on the filesystem\.
+.
+.TP
+\fB/images\fR
+Optional directory that acts as the booru folder root\.
+.
+.SH "CREDITS AND LICENSE"
+plague_doc is licensed under the WTFPL (why should i care how you use this structure anyway)\. Feel free to expand the specification as needed for your own purposes\.
+.
+.P
+This implementation was written by Valentijn "ev1l0rd"\. Do not contact me with requests on how to organize your filesystems\. I will ignore those emails\.
